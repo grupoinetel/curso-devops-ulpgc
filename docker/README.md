@@ -13,10 +13,6 @@ Los servicios presentes son:
 facilitar la depuración de los componentes desplegados, además de escuchar por HTTPS para obtener un 
 comportamiento similar al entorno final (usa un certificado autofirmado por lo que habrá que tenerlo en
 cuenta en los clientes usados).
-* ___sitycleta-sftp___: servidor SFTP que permite acceder de forma más fácil a los miembros del equipo que 
-utilicen Windows en lugar de Linux. Dichos usuarios pueden usar un cliente SFTP (por ejemplo [WinSCP](https://winscp.net/eng/download.php))
-y acceder a los volúmenes publicados por los servicios. Las credenciales usuario/contraseña 
-son __docker/docker__, y en el directorio `/home/docker` están accesibles los diferentes volúmenes.
 
 ## Configuración de los servicios
 Los siguientes servicios pueden configurarse usando variables de entorno, o bien presentes en el entorno
@@ -34,8 +30,6 @@ Si no se especifican variables de entorno se usarán los valores por defectos in
 * ___sitycleta-tomcat___
   * TOMCAT_HTTPS_PORT: puerto por el que será accesible Tomcat, usando HTTPS. por defecto ___8443___.
   * TOMCAT_DEBUG_PORT: puerto JPDA por el que será posible conectar el depurador Java a Tomcat. Por defecto ___8000____.
-* ___sitycleta-sftp___
-  * SFTP_PORT: puerto por el que se podrá acceder al servicio SFTP desde el _host_. Por defecto ___2222___.
   
 ## Volúmenes publicados
 Algunos servicios publican volúmenes para poder acceder e interactuar con los ficheros del contenedor 
@@ -52,6 +46,10 @@ expuestos por cada servicio:
 Para acceder al contenido de los volúmenes expuestos al _host_ podremos usar los comando `docker volume *`, 
 pero es preferible usar clientres visuales que permitan usar las herramientas más productivas para 
 los miembros del equipo:
+
+Ruta para acceder a los volúmenes (puede cambiar según versiones):
+* En windows: \\wsl$\docker-desktop-data\data\docker\volumes
+* En linux: /var/lib/docker/volumes/
 * Mediante **CIFS/SMB** (hosts Linux)
 
   Usar el siguiente comando para publicar los volúmenes en una unidad CIFS: 
@@ -72,13 +70,6 @@ los miembros del equipo:
   Esta solución permite acceder no sólo a los volúmenes de este proyecto, sino a todos los volúmenes presentes
   en el _host_.
 
-* Mediante **SFTP** (hosts Windows/Linux)
-
-  Ejecutar WinSCP o un cliente similar y acceder a la IP de la interfaz docker, puerto _2222_ 
-  (o la indicada en la variable de entorno `SFTP_PORT`), con el usuario
-  ___"docker"___, contraseña ___"docker"___ (sin comillas en ambos casos). En el directorio `/home/docker` 
-  aparecerán los volúmenes publicados para este proyecto (únicamente los de este proyecto). 
-
 ## Red interna
 Cada servicio tiene un nombre asociado dentro de la red privada del proyecto, así como unos puertos asociados
 a cada servicio:
@@ -89,8 +80,6 @@ a cada servicio:
   *  _tomcat:8080_ -> servidor Tomcat, protocolo HTTP
   *  _tomcat:8000_ -> servidor Tomcat, protocolo JPDA para permitir depurar (publicado en el _host_)
   *  _tomcat:8009_ -> servidor Tomcat, protocolo AJP
-* ___sitycleta-sftp___: 
-  * _sftp:22_ -> servidor SFTP (publicado en el _host_)
   
 ## Arranque de los servicios
 Los servicios se iniciarán con el comando:

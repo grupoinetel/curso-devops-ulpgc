@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.inerza.ulpgc.devopscourse</groupId>
+    <artifactId>bookReview</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0.0</version>
+    <modules>
+        <module>bookreview-api-rest</module>
+    </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-1.2-api</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+    </dependencies>
+
+    <properties>
+        <maven.compiler.source>19</maven.compiler.source>
+        <maven.compiler.target>19</maven.compiler.target>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <log4j.file.url>/usr/local/tomcat/logs/iztemplate.log</log4j.file.url>
+                <log4j.level>info</log4j.level>
+                <log4j.appender>console</log4j.appender>
+                <env.profile.resources>desarrollo</env.profile.resources>
+                <env.ds.url>jdbc:postgresql://postgresql12-dev.inerza.loc/iztemplate</env.ds.url>
+                <env.ds.driver.class>org.postgresql.Driver</env.ds.driver.class>
+                <env.ds.user>iztemplate</env.ds.user>
+                <env.ds.password>zyKKgYM2nSmthKLMuTKo</env.ds.password>
+                <env.ds.dialect>org.hibernate.dialect.PostgreSQL9Dialect</env.ds.dialect>
+
+                <it.ds.base>http://localhost:8080/server-web/api</it.ds.base>
+                <it.ds.sec>http://localhost:8080/server-sec/api</it.ds.sec>
+                <it.ds.token>/seg/auth/token</it.ds.token>
+                <it.ds.header>X-AUTH-TOKEN</it.ds.header>
+                <it.ds.user>admin</it.ds.user>
+                <it.ds.password>1q2w3e4R</it.ds.password>
+                <it.ds.center>0</it.ds.center>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev-docker</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <log4j.file.url>/usr/local/tomcat/logs/iztemplate.log</log4j.file.url>
+                <log4j.level>info</log4j.level>
+                <log4j.appender>console</log4j.appender>
+
+                <env.profile.resources>desarrollo</env.profile.resources>
+                <env.ds.url>jdbc:postgresql://localhost:5432/example</env.ds.url>
+                <env.ds.driver.class>org.postgresql.Driver</env.ds.driver.class>
+                <env.ds.user>example</env.ds.user>
+                <env.ds.password>example</env.ds.password>
+                <env.ds.dialect>org.hibernate.dialect.PostgreSQL9Dialect</env.ds.dialect>
+
+                <it.ds.base>http://localhost:8080/server-web/api</it.ds.base>
+                <it.ds.sec>http://localhost:8080/server-sec/api</it.ds.sec>
+                <it.ds.token>/seg/auth/token</it.ds.token>
+                <it.ds.header>X-AUTH-TOKEN</it.ds.header>
+                <it.ds.user>admin</it.ds.user>
+                <it.ds.password>1q2w3e4R</it.ds.password>
+                <it.ds.center>0</it.ds.center>
+            </properties>
+        </profile>
+    </profiles>
+</project>
