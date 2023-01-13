@@ -18,7 +18,7 @@ public class ReviewService implements IReviewService {
     private ReviewRepository reviewRepository;
 
     @Override
-    public List<Review> getReviewsList(int page, int size, String sortDir, String sort) {
+    public List<Review> getReviewList(int page, int size, String sortDir, String sort) {
 
         PageRequest pageReq = PageRequest.of(page, size, Sort.Direction.fromString(sortDir), sort);
 
@@ -40,4 +40,10 @@ public class ReviewService implements IReviewService {
     public Review getReviewById(Long id) {
         return reviewRepository.getReferenceById(id);
     }
+
+    @Override
+    public void deleteReview(Long id) {
+        reviewRepository.deleteById(id);
+    }
+
 }

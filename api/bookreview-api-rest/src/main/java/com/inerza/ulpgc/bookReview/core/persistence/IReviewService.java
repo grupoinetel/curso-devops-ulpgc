@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IReviewService {
 
-    List<Review> getReviewsList(int page, int size, String sortDir, String sort);
+    List<Review> getReviewList(int page, int size, String sortDir, String sort);
 
     void updateReview(Review post);
 
@@ -14,4 +14,5 @@ public interface IReviewService {
 
     Review getReviewById(Long id);
 
+    void deleteReview(Long id);
 }

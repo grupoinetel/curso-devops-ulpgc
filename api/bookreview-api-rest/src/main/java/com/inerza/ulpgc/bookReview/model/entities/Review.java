@@ -57,7 +57,7 @@ public class Review {
 
     public void setDescription(String reviewText) { this.description = reviewText; }
 
-    @ManyToOne()
+    @ManyToOne(optional = false)
     @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
     @JsonIdentityReference(alwaysAsId = true)
     public Book getBook() { return book; }

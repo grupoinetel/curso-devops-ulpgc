@@ -1,3 +1,0 @@
-# Ignoring .env file with users custom configuration for docker-compose
-.env
-

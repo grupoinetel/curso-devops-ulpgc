@@ -112,7 +112,7 @@ public class Book {
      * @return the isbn
      */
     @Basic
-    @Column(name = "cover")
+    @Column(name = "isbn")
     public String getIsbn() { return isbn; }
 
     /**
@@ -128,7 +128,7 @@ public class Book {
      * @return the cover
      */
     @Basic
-    @Column(name = "isbn")
+    @Column(name = "cover")
     public String getCover() { return cover; }
 
     /**
