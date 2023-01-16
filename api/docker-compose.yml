@@ -1,46 +1,24 @@
 version: '3'
 networks:
-  cursoDevops_network:
+  bookReview_network:
     driver: bridge
 
 services:
-  cursoDevops-postgres:
+  bookReview_postgres:
     image: "postgres:15.1"
-    container_name: cursoDevops-postgres
+    container_name: bookReview-postgres
     environment:
-      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-Mama-Rehire5-Antsy}
-      - POSTGRES_USER=${POSTGRES_USER:-cursoDevops}
-      - POSTGRES_DB=${POSTGRES_DB:-cursoDevops}
+      - POSTGRES_PASSWORD=bookreview
+      - POSTGRES_USER=bookreview
+      - POSTGRES_DB=bookreview
     ports:
-      - "${POSTGRES_PORT:-5432}:5432"
+      - "5432:5432"
     volumes:
-      - cursoDevops_postgresql_vol:/var/lib/postgresql/data
+      - bookReview_postgresql_vol:/var/lib/postgresql/data
     networks:
-      cursoDevops_network:
+      bookReview_network:
         aliases:
           - postgres
 
-#  cursoDevops-tomcat:
-#    image: "tomcat:jdk17"
-#    container_name: cursoDevops-tomcat
-#    depends_on:
-#      - cursoDevops-postgres
-#    ports:
-#      - "${TOMCAT_HTTP_PORT:-8080}:8080"
-#    volumes:
-#      - cursoDevops_tomcat_tmp_vol:/tmp
-#      - cursoDevops_tomcat_webapps_vol:/usr/local/tomcat/webapps
-#      - cursoDevops_tomcat_logs_vol:/usr/local/tomcat/logs
-#    networks:
-#      cursoDevops_network:
-#        aliases:
-#          - tomcat
-
 volumes:
-  cursoDevops_postgresql_vol:
-#  cursoDevops_tomcat_tmp_vol:
-#  cursoDevops_tomcat_webapps_vol:
-#  cursoDevops_tomcat_logs_vol:
-
-
-
+  bookReview_postgresql_vol:
