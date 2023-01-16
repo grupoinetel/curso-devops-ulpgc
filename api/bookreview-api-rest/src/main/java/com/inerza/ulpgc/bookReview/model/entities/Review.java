@@ -52,7 +52,7 @@ public class Review {
     public void setCreated(Date reviewDate) { this.created = reviewDate; }
 
     @Basic
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, length = 1000)
     public String getDescription() { return description; }
 
     public void setDescription(String reviewText) { this.description = reviewText; }
