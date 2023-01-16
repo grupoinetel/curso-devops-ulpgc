@@ -1,6 +1,6 @@
 package com.inerza.ulpgc.bookReview.model.entities;
-import jakarta.persistence.*;
 
+import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 

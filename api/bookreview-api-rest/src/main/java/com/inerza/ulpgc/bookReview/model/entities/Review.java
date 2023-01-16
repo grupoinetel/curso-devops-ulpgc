@@ -1,9 +1,9 @@
 package com.inerza.ulpgc.bookReview.model.entities;
+
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIdentityReference;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.Objects;
 

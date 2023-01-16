@@ -9,13 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.inerza.ulpgc.devopscourse</groupId>
-	<artifactId>bookReview</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>bookReviewAPI</artifactId>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
-	<name>bookReview</name>
+	<name>bookReviewAPI</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>19</java.version>
+		<tomcat.version>10.1.5</tomcat.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -29,6 +30,14 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
 		<dependency>
@@ -49,25 +58,20 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
 	<build>
-		<finalName>bookreview</finalName>
+		<finalName>book-review</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.5.1</version>
 				<configuration>
-					<source>11</source>
-					<target>11</target>
+					<source>19</source>
+					<target>19</target>
 					<annotationProcessorPaths>
 						<path>
 							<groupId>org.mapstruct</groupId>
@@ -87,10 +91,10 @@
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<webResources>
-						<resource>
+						<!--<resource>
 							<directory>src/main/webapp</directory>
 							<filtering>true</filtering>
-						</resource>
+						</resource>-->
 					</webResources>
 					<packagingExcludes>**/Thumbs.db</packagingExcludes>
 					<nonFilteredFileExtensions>

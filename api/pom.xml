@@ -33,50 +33,37 @@
     <profiles>
         <profile>
             <id>dev</id>
-            <properties>
-                <log4j.file.url>/usr/local/tomcat/logs/iztemplate.log</log4j.file.url>
-                <log4j.level>info</log4j.level>
-                <log4j.appender>console</log4j.appender>
-                <env.profile.resources>desarrollo</env.profile.resources>
-                <env.ds.url>jdbc:postgresql://postgresql12-dev.inerza.loc/iztemplate</env.ds.url>
-                <env.ds.driver.class>org.postgresql.Driver</env.ds.driver.class>
-                <env.ds.user>iztemplate</env.ds.user>
-                <env.ds.password>zyKKgYM2nSmthKLMuTKo</env.ds.password>
-                <env.ds.dialect>org.hibernate.dialect.PostgreSQL9Dialect</env.ds.dialect>
-
-                <it.ds.base>http://localhost:8080/server-web/api</it.ds.base>
-                <it.ds.sec>http://localhost:8080/server-sec/api</it.ds.sec>
-                <it.ds.token>/seg/auth/token</it.ds.token>
-                <it.ds.header>X-AUTH-TOKEN</it.ds.header>
-                <it.ds.user>admin</it.ds.user>
-                <it.ds.password>1q2w3e4R</it.ds.password>
-                <it.ds.center>0</it.ds.center>
-            </properties>
-        </profile>
-        <profile>
-            <id>dev-docker</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <log4j.file.url>/usr/local/tomcat/logs/iztemplate.log</log4j.file.url>
+                <log4j.file.url>/usr/local/tomcat/logs/bookreview.log</log4j.file.url>
                 <log4j.level>info</log4j.level>
                 <log4j.appender>console</log4j.appender>
 
-                <env.profile.resources>desarrollo</env.profile.resources>
-                <env.ds.url>jdbc:postgresql://localhost:5432/example</env.ds.url>
-                <env.ds.driver.class>org.postgresql.Driver</env.ds.driver.class>
-                <env.ds.user>example</env.ds.user>
-                <env.ds.password>example</env.ds.password>
-                <env.ds.dialect>org.hibernate.dialect.PostgreSQL9Dialect</env.ds.dialect>
+                <env.jdbc.driverClassName>org.postgresql.Driver</env.jdbc.driverClassName>
+                <env.jdbc.url>jdbc:postgresql://localhost:5432/cursodevops</env.jdbc.url>
+                <env.jdbc.user>cursoDevops</env.jdbc.user>
+                <env.jdbc.password>cursodevops</env.jdbc.password>
+                <env.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</env.hibernate.dialect>
+                <env.hibernate.show_sql>true</env.hibernate.show_sql>
+                <env.hibernate.hbm2ddl.auto>update</env.hibernate.hbm2ddl.auto>
+            </properties>
+        </profile>
+        <profile>
+            <id>pre</id>
+            <properties>
+                <log4j.file.url>/usr/local/tomcat/logs/bookreview.log</log4j.file.url>
+                <log4j.level>info</log4j.level>
+                <log4j.appender>file</log4j.appender>
 
-                <it.ds.base>http://localhost:8080/server-web/api</it.ds.base>
-                <it.ds.sec>http://localhost:8080/server-sec/api</it.ds.sec>
-                <it.ds.token>/seg/auth/token</it.ds.token>
-                <it.ds.header>X-AUTH-TOKEN</it.ds.header>
-                <it.ds.user>admin</it.ds.user>
-                <it.ds.password>1q2w3e4R</it.ds.password>
-                <it.ds.center>0</it.ds.center>
+                <env.jdbc.driverClassName>org.postgresql.Driver</env.jdbc.driverClassName>
+                <env.jdbc.url>jdbc:postgresql://postgresql12-pre.inerza.loc:5432/cursodevops</env.jdbc.url>
+                <env.jdbc.user>cursodevops</env.jdbc.user>
+                <env.jdbc.password>Mama-Rehire5-Antsy</env.jdbc.password>
+                <env.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</env.hibernate.dialect>
+                <env.hibernate.show_sql>false</env.hibernate.show_sql>
+                <env.hibernate.hbm2ddl.auto>update</env.hibernate.hbm2ddl.auto>
             </properties>
         </profile>
     </profiles>
