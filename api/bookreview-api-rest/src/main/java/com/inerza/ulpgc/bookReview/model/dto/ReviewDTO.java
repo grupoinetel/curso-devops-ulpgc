@@ -1,7 +1,5 @@
 package com.inerza.ulpgc.bookReview.model.dto;
 
-import com.inerza.ulpgc.bookReview.model.entities.Book;
-
 import java.util.Date;
 
 public class ReviewDTO {
@@ -10,7 +8,7 @@ public class ReviewDTO {
     private String author;
     private Date created;
     private String description;
-    private Book book;
+    private BookDTO book;
 
     public ReviewDTO() {}
 
@@ -46,11 +44,11 @@ public class ReviewDTO {
         this.description = description;
     }
 
-    public Book getBook() {
+    public BookDTO getBook() {
         return book;
     }
 
-    public void setBook(Book book) {
+    public void setBook(BookDTO book) {
         this.book = book;
     }
 }
