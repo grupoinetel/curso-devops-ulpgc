@@ -1,0 +1,67 @@
+.review {
+  /* display: flex;
+  flex-direction: row;*/
+  /*height: 30%;*/
+
+
+  .col-avatar {
+    display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+    .avatar {
+      border-radius: 10px;
+      background-color: rgb(228, 92, 92);
+      display: flex;
+      justify-content: center;
+      padding: 1em;
+      position: absolute;
+      width: 100px;
+      height: 100px;;
+
+      /*.avatar {
+        margin: 2em;
+      }*/
+    }
+  }
+
+  .review-info{
+    padding-left: 10px;
+    font-size: 0.8em;
+    color: var(--ion-color-medium);
+
+    .review-book-title {
+      text-align: left;
+      font-size: 1.1em;
+      padding-left: 0;
+      color: var(--ion-color-dark);
+    }
+
+    .description {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    .extra {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .author, .created {
+        display: flex;
+        flex-direction: row;
+        ion-label {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+
+
+
+
+}
+
+

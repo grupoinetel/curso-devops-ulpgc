@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  curso-devops-ionic:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: curso-devops-ionic:latest  
+    container_name: curso-devops-ionic
+    environment:
+      - TZ=Atlantic/Canary
+    ports:
+      - "8100:8100"
+    volumes:
+      - ./:/proyecto-ionic
+    stdin_open: true
+    network_mode: 'host'
+    tty: true  
