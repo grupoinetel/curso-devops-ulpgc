@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Book } from '../model/book';
 
 
 @Injectable({
@@ -12,10 +13,12 @@ export class BookService {
 
   }
 
-  getBooks(): Observable<any> {
+  getBooks(size? :number): Observable<Book[]> {
     let params = new HttpParams();
-    params.set('page', 0);
-    params.set('size', 5);
-    return this.http.get('http://localhost:8080/books', { params });
+    params = params.append('page', 0);
+    params = params.append('size', !!size ? size: 50);
+    params = params.append('sortDir', 'asc');
+    params = params.append('sort', 'id');
+    return this.http.get<Book[]>('http://localhost:8080/books', { params });
   }
 }

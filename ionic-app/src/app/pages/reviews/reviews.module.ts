@@ -19,10 +19,6 @@ import { ReviewService } from '../../services/review.service';
     ReviewsPageRoutingModule,
     HttpClientModule
   ],
-  declarations: [ReviewsPage],
-  providers: [
-    BookService,
-    ReviewService
-  ]
+  declarations: [ReviewsPage]
 })
 export class ReviewsPageModule {}

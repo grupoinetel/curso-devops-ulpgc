@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Edici&oacute;n de una rese&ntilde;a
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit) = "saveChanges()">
+    <ion-item>
+      <ion-label position="floating">Libro</ion-label>
+      <ion-select multiple="false" placeholder="Selecciona un libro" [(ngModel)]="bookId" name="bookId">
+        <ion-select-option *ngFor="let book of books" [value]="book.id">{{book.name}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Autor de la rese&ntilde;a</ion-label>
+      <ion-input name="author"
+                  type="text"
+                  [(ngModel)]="review.author"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Fecha de la rese&ntilde;a</ion-label>
+      <ion-input id="open-popover2" value="{{created | date: 'd MMM, yyyy'}}"></ion-input>
+      <ion-popover trigger="open-popover2" cssClass="width-80">
+        <ng-template>
+          <ion-datetime
+            name="created"
+            presentation="date"
+            [(ngModel)]="created"
+            size="cover"
+            [showDefaultButtons]="true"
+          ></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Rese&ntilde;a</ion-label>
+      <ion-textarea name="description"
+                  [autoGrow]="true"
+                  [(ngModel)]="review.description"></ion-textarea>
+    </ion-item>
+
+    <ion-fab *ngIf="!!review.id" slot="fixed" vertical="bottom" horizontal="start">
+      <ion-fab-button (click)="delete()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+      <ion-button (click)="saveChanges()">
+        GUARDAR
+      </ion-button>
+    </ion-fab>
+    <!--<ion-button (click)="saveChanges()">GUARDAR</ion-button>-->
+  </form>
+
+</ion-content>
