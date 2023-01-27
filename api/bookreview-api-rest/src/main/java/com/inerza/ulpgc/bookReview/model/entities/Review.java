@@ -25,7 +25,12 @@ public class Review {
 
     @Id
     @GeneratedValue(
-            strategy = GenerationType.IDENTITY
+            strategy = GenerationType.SEQUENCE,
+            generator = "review_id_seq"
+    )
+    @SequenceGenerator(
+            name = "review_id_seq",
+            allocationSize = 1
     )
     public Long getId() {
         return this.id;
