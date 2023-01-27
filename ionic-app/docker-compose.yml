@@ -1,12 +1,12 @@
 version: '3'
 
 services:
-  curso-devops-ionic:
+  bookReview-ionic:
     build:
-      context: ./
+      context: ./docker
       dockerfile: Dockerfile
-    image: curso-devops-ionic:latest  
-    container_name: curso-devops-ionic
+    image: ionic-dev:latest  
+    container_name: ionic-dev
     environment:
       - TZ=Atlantic/Canary
     ports:

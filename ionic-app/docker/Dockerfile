@@ -17,8 +17,11 @@ RUN curl --retry 3 -SLO "http://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSI
     npm install -g npm@"$NPM_VERSION" && \
     npm install -g @angular/cli@"$ANGULAR_CLI_VERSION" && \
     npm install -g @ionic/cli@"$IONIC_CLI_VERSION" && \
-    npm cache verify
-    
+    npm cache verify    
+  
 WORKDIR /proyecto-ionic
+
+RUN umask 111
+
 EXPOSE 8100
 CMD ["bash"]
