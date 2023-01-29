@@ -16,20 +16,20 @@
       <ion-select multiple="false" placeholder="Selecciona un libro" [(ngModel)]="bookId" name="bookId">
         <ion-select-option *ngFor="let book of books" [value]="book.id">{{book.name}}</ion-select-option>
       </ion-select>
+      <ion-buttons slot="end">
+        <ion-fab-button (click)="saveChanges()" size="small">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button (click)="saveChanges()" size="small">
+          <ion-icon name="add"></ion-icon>
+        </ion-fab-button>
+      </ion-buttons>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Autor de la rese&ntilde;a</ion-label>
       <ion-input name="author"
                   type="text"
                   [(ngModel)]="review.author"></ion-input>
-    <ion-buttons slot="end">
-      <ion-fab-button (click)="saveChanges()" size="small">
-        <ion-icon name="create-outline"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button (click)="saveChanges()" size="small">
-        <ion-icon name="add"></ion-icon>
-      </ion-fab-button>
-    </ion-buttons>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Fecha de la rese&ntilde;a</ion-label>
