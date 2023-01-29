@@ -22,6 +22,14 @@
       <ion-input name="author"
                   type="text"
                   [(ngModel)]="review.author"></ion-input>
+    <ion-buttons slot="end">
+      <ion-fab-button (click)="saveChanges()" size="small">
+        <ion-icon name="create-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button (click)="saveChanges()" size="small">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-buttons>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Fecha de la rese&ntilde;a</ion-label>
