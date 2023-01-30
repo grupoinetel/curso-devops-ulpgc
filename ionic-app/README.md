@@ -22,3 +22,20 @@ docker-compose run --rm bookReview-ionic
 ```
 
 El comando iniciará los servicios necesarios que permitirán compilar y ejecutar el proyecto Ionic. 
+
+## Instalación de los paquetes npm
+Antes de levantar el servidor Ionic, será necesario instalar todos los paquetes requeridos por el proyecto con el siguiente comando:
+```bash
+npm install
+```
+
+## Arranque del servidor Ionic
+El último paso consistirá en el arranque del servidor Ionic. Es importante tener en cuenta que la API debe estar desplegada correctamente para que el proyecto Ionic funcione correctamente.
+
+El comando para arrancar el servidor Ionic es el siguiente:
+```bash
+ionic serve
+```
+
+Una vez arrancado se podrá probar el proyecto en el navegador en la dirección http://localhost:8100
+
