@@ -6,7 +6,7 @@ networks:
 services:
   bookReview_postgres:
     image: "postgres:15.1"
-    container_name: bookReview-postgres
+    container_name: bookReview_postgres
     environment:
       - POSTGRES_PASSWORD=bookreview
       - POSTGRES_USER=bookreview
@@ -23,7 +23,7 @@ services:
   bookReview_tomcat:
     build:
       context: ./api
-    image: inetel/bookReview_tomcat
+    image: inetel/bookreview_tomcat
     container_name: bookReview_tomcat
     depends_on:
       - bookReview_postgres
@@ -31,6 +31,7 @@ services:
       - "${TOMCAT_HTTP_PORT:-8080}:8080"
     volumes:
       - bookReview_tomcat_tmp_vol:/tmp
+      - bookReview_tomcat_m2_vol:/root/.m2
     networks:
       bookReview_network:
         aliases:
@@ -39,5 +40,5 @@ services:
 volumes:
   bookReview_postgresql_vol:
   bookReview_tomcat_tmp_vol:
-
+  bookReview_tomcat_m2_vol:
 

@@ -42,7 +42,7 @@
                 <log4j.appender>console</log4j.appender>
 
                 <env.jdbc.driverClassName>org.postgresql.Driver</env.jdbc.driverClassName>
-                <env.jdbc.url>jdbc:postgresql://localhost:5432/cursodevops</env.jdbc.url>
+                <env.jdbc.url>jdbc:postgresql://bookReview_postgres:5432/cursodevops</env.jdbc.url>
                 <env.jdbc.user>cursoDevops</env.jdbc.user>
                 <env.jdbc.password>cursodevops</env.jdbc.password>
                 <env.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</env.hibernate.dialect>
