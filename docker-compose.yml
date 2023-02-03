@@ -4,9 +4,9 @@ networks:
     driver: bridge
 
 services:
-  bookReview_postgres:
+  bookReview_bdd:
     image: "postgres:15.1"
-    container_name: bookReview_postgres
+    container_name: bookReview_bdd
     environment:
       - POSTGRES_PASSWORD=bookreview
       - POSTGRES_USER=bookreview
@@ -14,29 +14,46 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - bookReview_postgresql_vol:/var/lib/postgresql/data
+      - bbookReview_bdd_vol:/var/lib/postgresql/data
     networks:
       bookReview_network:
         aliases:
-          - postgres
+          - bdd
 
-  bookReview_tomcat:
+  bookReview_back:
     build:
       context: ./api
-    image: inetel/bookreview_tomcat
-    container_name: bookReview_tomcat
+    image: inetel/bookreview_back
+    container_name: bookReview_back
     depends_on:
-      - bookReview_postgres
+      - bookReview_bdd
     ports:
       - "${TOMCAT_HTTP_PORT:-8080}:8080"
     volumes:
-      - bookReview_tomcat_tmp_vol:/tmp
+      - bookReview_back_tmp_vol:/tmp
     networks:
       bookReview_network:
         aliases:
-          - tomcat
+          - back
+
+  bookReview_front:
+    build:
+      context: ./ionic-app
+    image: inetel/bookreview_front
+    container_name: bookReview_front
+    depends_on:
+      - bookReview_back
+    ports:
+      - "${NGINX_HTTP_PORT:-80}:80"
+    volumes:
+      - bookReview_front_dist_vol:/app/dist
+    networks:
+      bookReview_network:
+        aliases:
+          - front
 
 volumes:
-  bookReview_postgresql_vol:
-  bookReview_tomcat_tmp_vol:
+  bbookReview_bdd_vol:
+  bookReview_back_tmp_vol:
+  bookReview_front_dist_vol:
 
