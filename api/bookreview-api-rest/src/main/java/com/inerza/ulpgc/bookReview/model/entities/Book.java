@@ -39,12 +39,7 @@ public class Book {
      */
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "book_id_seq"
-    )
-    @SequenceGenerator(
-            name = "book_id_seq",
-            allocationSize = 1
+            strategy = GenerationType.IDENTITY
     )
     public Long getId() {
         return this.id;
