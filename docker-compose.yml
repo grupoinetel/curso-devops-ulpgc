@@ -31,7 +31,6 @@ services:
       - "${TOMCAT_HTTP_PORT:-8080}:8080"
     volumes:
       - bookReview_tomcat_tmp_vol:/tmp
-      - bookReview_tomcat_m2_vol:/root/.m2
     networks:
       bookReview_network:
         aliases:
@@ -40,5 +39,4 @@ services:
 volumes:
   bookReview_postgresql_vol:
   bookReview_tomcat_tmp_vol:
-  bookReview_tomcat_m2_vol:
 
