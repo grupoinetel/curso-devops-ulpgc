@@ -14,7 +14,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - bbookReview_bdd_vol:/var/lib/postgresql/data
+      - bookReview_bdd_vol:/var/lib/postgresql/data
     networks:
       bookReview_network:
         aliases:
@@ -53,7 +53,7 @@ services:
           - front
 
 volumes:
-  bbookReview_bdd_vol:
+  bookReview_bdd_vol:
   bookReview_back_tmp_vol:
   bookReview_front_dist_vol:
 
