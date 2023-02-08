@@ -29,42 +29,4 @@
         <maven.compiler.source>19</maven.compiler.source>
         <maven.compiler.target>19</maven.compiler.target>
     </properties>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <log4j.file.url>/usr/local/tomcat/logs/bookreview.log</log4j.file.url>
-                <log4j.level>info</log4j.level>
-                <log4j.appender>console</log4j.appender>
-
-                <env.jdbc.driverClassName>org.postgresql.Driver</env.jdbc.driverClassName>
-                <env.jdbc.url>jdbc:postgresql://bookReview_postgres:5432/cursodevops</env.jdbc.url>
-                <env.jdbc.user>cursoDevops</env.jdbc.user>
-                <env.jdbc.password>cursodevops</env.jdbc.password>
-                <env.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</env.hibernate.dialect>
-                <env.hibernate.show_sql>true</env.hibernate.show_sql>
-                <env.hibernate.hbm2ddl.auto>update</env.hibernate.hbm2ddl.auto>
-            </properties>
-        </profile>
-        <profile>
-            <id>pre</id>
-            <properties>
-                <log4j.file.url>/usr/local/tomcat/logs/bookreview.log</log4j.file.url>
-                <log4j.level>info</log4j.level>
-                <log4j.appender>file</log4j.appender>
-
-                <env.jdbc.driverClassName>org.postgresql.Driver</env.jdbc.driverClassName>
-                <env.jdbc.url>jdbc:postgresql://postgresql12-pre.inerza.loc:5432/cursodevops</env.jdbc.url>
-                <env.jdbc.user>cursodevops</env.jdbc.user>
-                <env.jdbc.password>Mama-Rehire5-Antsy</env.jdbc.password>
-                <env.hibernate.dialect>org.hibernate.dialect.PostgreSQLDialect</env.hibernate.dialect>
-                <env.hibernate.show_sql>false</env.hibernate.show_sql>
-                <env.hibernate.hbm2ddl.auto>update</env.hibernate.hbm2ddl.auto>
-            </properties>
-        </profile>
-    </profiles>
 </project>
