@@ -36,24 +36,7 @@ services:
         aliases:
           - back
 
-  bookReview_front:
-    build:
-      context: ./ionic-app
-    image: inetel/bookreview_front
-    container_name: bookReview_front
-    depends_on:
-      - bookReview_back
-    ports:
-      - "${NGINX_HTTP_PORT:-80}:80"
-    volumes:
-      - bookReview_front_dist_vol:/app/dist
-    networks:
-      bookReview_network:
-        aliases:
-          - front
-
 volumes:
   bookReview_bdd_vol:
   bookReview_back_tmp_vol:
-  bookReview_front_dist_vol:
 
