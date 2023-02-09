@@ -1,0 +1,11 @@
+{
+    "name": "hello-world",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "author": "Pablo Montesdeoca Pérez",
+    "license": "MIT",
+    "dependencies": {
+      "express": "^4.17.1"
+    }
+  }
