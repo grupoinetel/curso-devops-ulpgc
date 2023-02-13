@@ -33,7 +33,7 @@ public class BookRestController {
                     content = { @Content(examples = { @ExampleObject(value = "") }) }) })
     @GetMapping(produces = "application/json")
     @ResponseBody
-    public List<BookDTO> getReviews(
+    public List<BookDTO> getBooks(
             @RequestParam() Integer page,
             @RequestParam() Integer size,
             @RequestParam() String sortDir,
