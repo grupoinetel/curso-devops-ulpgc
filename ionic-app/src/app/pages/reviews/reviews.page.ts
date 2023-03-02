@@ -1,10 +1,9 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { IonInfiniteScroll, NavController, RefresherCustomEvent } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonInfiniteScroll, NavController } from '@ionic/angular';
 
-import { DataService, Message } from '../../services/data.service';
 import { ReviewService } from '../../services/review.service';
 import { Review } from 'src/app/model/review';
-import { ActivatedRoute, NavigationExtras } from '@angular/router';
+import {  NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'reviews-home',
@@ -23,8 +22,7 @@ export class ReviewsPage implements OnInit {
   avatarClasses = ['avatar-rojo', 'avatar-verde', 'avatar-azul-claro', 'avatar-azul-oscuro', 'avatar-violeta', 
                    'avatar-amarillo', 'avatar-rosa', 'avatar-naranja', 'avatar-turquesa', 'avatar-verde-limon'];
 
-  constructor(private data: DataService,
-              private reviewsService: ReviewService,
+  constructor(private reviewsService: ReviewService,
               private navCtrl: NavController) {}
   
 

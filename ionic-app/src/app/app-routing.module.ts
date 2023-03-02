@@ -7,10 +7,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/reviews/reviews.module').then( m => m.ReviewsPageModule)
   },
   {
-    path: 'message/:id',
-    loadChildren: () => import('./view-message/view-message.module').then( m => m.ViewMessagePageModule)
-  },
-  {
     path: '',
     redirectTo: 'reviews',
     pathMatch: 'full'

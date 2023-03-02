@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlAPI: 'https://bookreview-back.wittysmoke-d4551057.westeurope.azurecontainerapps.io/' //urlAPI: 'http://localhost:8080'
 };
 
 /*
