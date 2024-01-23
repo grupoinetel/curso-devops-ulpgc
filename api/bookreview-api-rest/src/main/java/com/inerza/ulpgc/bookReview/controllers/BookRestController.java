@@ -34,9 +34,13 @@ public class BookRestController {
     @GetMapping(produces = "application/json")
     @ResponseBody
     public List<BookDTO> getBooks(
+            @Parameter(name = "page", description = "Página")
             @RequestParam() Integer page,
+            @Parameter(name = "size", description = "Elementos por página")
             @RequestParam() Integer size,
+            @Parameter(name = "sortDir", description = "ASC o DSC")
             @RequestParam() String sortDir,
+            @Parameter(name = "sort", description = "Ordenar por campo Ex. 'id' ")
             @RequestParam() String sort) {
 
         List<Book> books = bookService.getBookList(page, size, sortDir, sort);
