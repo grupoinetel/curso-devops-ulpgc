@@ -37,9 +37,13 @@ public class ReviewRestController {
     @GetMapping(produces = "application/json")
     @ResponseBody
     public List<ReviewDTO> getReviews(
+            @Parameter(name = "page", description = "Página")
             @RequestParam() Integer page,
+            @Parameter(name = "size", description = "Elementos por página")
             @RequestParam() Integer size,
+            @Parameter(name = "sortDir", description = "ASC o DSC")
             @RequestParam() String sortDir,
+            @Parameter(name = "sort", description = "Ordenar por campo Ex. 'id' ")
             @RequestParam() String sort) {
 
         List<Review> reviews = reviewService.getReviewList(page, size, sortDir, sort);
